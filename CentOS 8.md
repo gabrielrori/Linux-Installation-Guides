@@ -3,10 +3,6 @@
 
 # CentOS 8
 
-Basado en:
-https://phoenixnap.com/kb/how-to-install-centos-7
-
----------------
 
 1. Descargar el DVD (BaseOS y repositorios AppStream).
 
