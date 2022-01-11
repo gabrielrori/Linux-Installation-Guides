@@ -31,6 +31,7 @@ Rocks 7 solo permite solo permite instalación por la red, se debe poder acceder
     ![](http://central-7-0-x86-64.rocksclusters.org/roll-documentation/base/7.0/images/install7/no-network-scrolled-640.png)
     
     En  "NETWORK & HOST NAME" configurar la IP pública y el nombre de host. Si existen varias interfaces, configurar sólo la interfaz para acceso público, en este caso es eth1.
+    
     ![](http://central-7-0-x86-64.rocksclusters.org/roll-documentation/base/7.0/images/install7/network-public-640.png)
     
     Hacer click en configurar y seleccionar la dirección IPv4 en configuración manual.
