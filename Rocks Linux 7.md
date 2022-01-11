@@ -2,11 +2,8 @@
 
 
 # Rocks Linux 7
-Guía basada en:
-http://central-7-0-x86-64.rocksclusters.org/roll-documentation/base/7.0/install-frontend.html
 
 
-----------
 
 ## Instalación y configuración del frontend
 
@@ -105,4 +102,7 @@ Hacer click en "Add Selected Rolls" para agregarlos al frontend.
 
 
 ------------------------------------------------------------------------------
+
+Guía basada en:
+http://central-7-0-x86-64.rocksclusters.org/roll-documentation/base/7.0/install-frontend.html
 
