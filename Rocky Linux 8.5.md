@@ -52,7 +52,7 @@ Selecciona "Server with GUI" y cualquier otro paquete adicional que necesites.
         * `/`: Espacio restante (ext4)
 
 ```bash
-# Ejemplo de comandos para particionar con fdisk (reemplaza /dev/sda con tu disco):
+# Comandos para particionar con fdisk (reemplaza /dev/sda con tu disco):
 # fdisk /dev/sda
 # n (nueva partición)
 # p (primaria)
