@@ -1,109 +1,96 @@
-﻿
+# Instalación de Rocks Linux 7
 
+Esta guía describe la instalación y configuración de un frontend en Rocks Linux 7. Rocks 7 solo permite la instalación por red, por lo que necesitarás acceso a un servidor de rolls.
 
-# Rocks Linux 7
+## Rolls Necesarios
 
+El frontend requiere los siguientes rolls como mínimo:
 
+* Kernel Roll
+* Base Roll
+* Core Roll
+* CentOS Roll
+* Updates-CentOS Roll
 
-## Instalación y configuración del frontend
+## Bootear con el Roll del Kernel
 
-El fronted debe tener instalado los siguientes rolls como mínimo:
--   Kernel Roll
--   Base Rol
--   Core Roll
--   CentOS Roll
--   Updates-CentOS Roll
+1. **Grabar la Imagen del Kernel:**
 
-Rocks 7 solo permite solo permite instalación por la red, se debe poder acceder a todos los rolls desde un servidor.
+    ```bash
+    sudo dd bs=4M if=/ruta/a/imagen_kernel.iso of=/dev/sdX status=progress && sync
+    ```
 
-## Bootear con el roll del kernel de Rocks 7 en el frontend
+    **Advertencia:** Reemplaza `/ruta/a/imagen_kernel.iso` con la ruta correcta a la imagen del kernel y `/dev/sdX` con la ruta a tu dispositivo USB. **Verifica la ruta con `lsblk` antes de ejecutar para evitar la pérdida de datos.**
 
-1.  Grabar la imagen del kernel en modo dd.
-       
-2.  Bootear la imagen en el frontend
-    
-    ![](http://central-7-0-x86-64.rocksclusters.org/roll-documentation/base/7.0/images/install7/rocks-boot-screen-640.png)
-    
-3.  Seleccionar el idioma   
-    ![](http://central-7-0-x86-64.rocksclusters.org/roll-documentation/base/7.0/images/install7/choose-language-640.png)
-  Configurar la red pública:
-       
-    ![](http://central-7-0-x86-64.rocksclusters.org/roll-documentation/base/7.0/images/install7/no-network-scrolled-640.png)
-    
-    En  "NETWORK & HOST NAME" configurar la IP pública y el nombre de host. Si existen varias interfaces, configurar sólo la interfaz para acceso público, en este caso es eth1.
-    
-    ![](http://central-7-0-x86-64.rocksclusters.org/roll-documentation/base/7.0/images/install7/network-public-640.png)
-    
-    Hacer click en configurar y seleccionar la dirección IPv4 en configuración manual.
-    
-    ![](http://central-7-0-x86-64.rocksclusters.org/roll-documentation/base/7.0/images/install7/manual-network-frontend-640.png)
-    
-    Configurar IPv6 como "link-local only"
-    
-    ![](http://central-7-0-x86-64.rocksclusters.org/roll-documentation/base/7.0/images/install7/ipv6-link-local-640.png)
-    
-    Guardar y hacer click en on/off para activar la interfaz red. Debería aparecer el IP y el DNS. Cambiar el hostname:
-    
-    ![](http://central-7-0-x86-64.rocksclusters.org/roll-documentation/base/7.0/images/install7/network-up-640.png)
-   
-    
-4.  Configurar la red local
-    
-    En ROCKS CLUSTER CONFIG seleecionar CLUSTER PRIVATE NETWORK
-    
-    ![](http://central-7-0-x86-64.rocksclusters.org/roll-documentation/base/7.0/images/install7/private-network-setup-640.png)
-    
-    En el menu desplegable "private cluster interface" seleccionar la interfaz física para la conexión de área local, no está disponible el adaptador de conexión a internet:
-    
-    Seleccionar la subnet IPv4. Las IP pública y privada deben ser diferentes.
-    
-        
-    ![](http://central-7-0-x86-64.rocksclusters.org/roll-documentation/base/7.0/images/install7/private-network-complete-640.png)
-    
-5.  Seleccionar los rolls a instalar en ROCKS ROLLS
-    
-    Escribir el servidor de rolls y seleccionar los rolls:
-    
-    ![](http://central-7-0-x86-64.rocksclusters.org/roll-documentation/base/7.0/images/install7/list-rolls-640.png)
-    
-Hacer click en "Add Selected Rolls" para agregarlos al frontend.
-    
-6.  Configurar el cluster en CLUSTER CONFIG
-    
-    ![](http://central-7-0-x86-64.rocksclusters.org/roll-documentation/base/7.0/images/install7/configure-cluster-640.png)
-    
-    Completar los items en rojo:
-    
-    ![](http://central-7-0-x86-64.rocksclusters.org/roll-documentation/base/7.0/images/install7/configure-cluster-1-640.png)
+2. **Bootear la Imagen:** Configura tu BIOS para arrancar desde el USB.
 
-    
-    ![](http://central-7-0-x86-64.rocksclusters.org/roll-documentation/base/7.0/images/install7/configure-contact-640.png)
-    
-7.  Configurar la partición con el esquema deseado dependiendo si es UEFI o BIOS.
-    
-    ![](http://central-7-0-x86-64.rocksclusters.org/roll-documentation/base/7.0/images/install7/configure-partition-manual-640.png)
-  
-    
-8.  Iniciar la instalación:
-    
-    ![](http://central-7-0-x86-64.rocksclusters.org/roll-documentation/base/7.0/images/install7/begin-ready-640.png)
-    
-   
-    
-9.  Configurar la contraseña del rootcon SET ROOT PASSWORD, aún no crear usuario.
-    
-    ![](http://central-7-0-x86-64.rocksclusters.org/roll-documentation/base/7.0/images/install7/need-rootpw-640.png)
+3. **Seleccionar Idioma:** Elige tu idioma preferido.
 
-    Después de la instalación, se verá la siguiente pantalla:
-    
-    ![](http://central-7-0-x86-64.rocksclusters.org/roll-documentation/base/7.0/images/install7/installation-complete-640.png)
-  10.  Hacer click en reboot y remover medio de instalación.
+4. **Configurar la Red Pública (NETWORK & HOST NAME):**
 
+    * Configura la IP pública, máscara de subred, puerta de enlace y DNS.
+    * Configura el nombre de host.
+    * Si tienes varias interfaces de red, configura solo la interfaz de acceso público.
 
+    **Ejemplo de configuración manual de IPv4:**
 
+    ```
+    Dirección IP: 192.168.1.10
+    Máscara de subred: 255.255.255.0
+    Puerta de enlace: 192.168.1.1
+    DNS: 8.8.8.8, 8.8.4.4
+    ```
 
-------------------------------------------------------------------------------
+    * Configura IPv6 como "link-local only".
+    * Activa la interfaz de red.
 
-Guía basada en:
-http://central-7-0-x86-64.rocksclusters.org/roll-documentation/base/7.0/install-frontend.html
+5. **Configurar la Red Privada (ROCKS CLUSTER CONFIG > CLUSTER PRIVATE NETWORK):**
+
+    * Selecciona la interfaz física para la red privada (no la de acceso público).
+    * Configura la subred IPv4 (diferente a la pública).
+
+    **Ejemplo:**
+
+    ```
+    Interfaz: eth0
+    Subred IPv4: 10.0.0.0/24
+    ```
+
+6. **Seleccionar Rolls (ROCKS ROLLS):**
+
+    * Especifica la dirección del servidor de rolls.
+    * Selecciona los rolls necesarios y agrégalos al frontend.
+
+    **Ejemplo:**
+
+    ```
+    Servidor de Rolls: rocks.example.com
+    Rolls: Kernel, Base, Core, CentOS, Updates-CentOS
+    ```
+
+7. **Configurar el Clúster (CLUSTER CONFIG):**
+
+    * Completa la información requerida, como el nombre del clúster, la organización, el contacto, etc.
+
+8. **Configurar la Partición:**
+
+    * Configura el esquema de partición (UEFI o BIOS).
+    * Crea las particiones necesarias.  Se recomienda usar una herramienta como `parted` o `gdisk` para particiones GPT en sistemas UEFI.
+
+    **Ejemplo con `parted` (reemplaza /dev/sda con tu disco):**
+
+    ```bash
+    # parted /dev/sda
+    # mklabel gpt
+    # mkpart /boot ext4 1MiB 500MiB
+    # mkpart swap linux-swap 500MiB 2GiB
+    # mkpart / ext4 2GiB 100%
+    # quit
+    ```
+
+9. **Iniciar la Instalación:** Haz clic en "Begin Installation".
+
+10. **Contraseña de Root (SET ROOT PASSWORD):** Define una contraseña segura para root.  **No crees otros usuarios en este paso.**
+
+11. **Reiniciar:** Después de la instalación, reinicia el sistema y retira el medio de instalación.
 
