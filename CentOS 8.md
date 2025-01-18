@@ -90,5 +90,3 @@ Después de que la instalación se complete, reinicia el sistema y retira el USB
 
 Inicia sesión con el usuario y la contraseña que creaste durante la instalación.
 
-
-¡Felicidades! Has instalado CentOS 8.
