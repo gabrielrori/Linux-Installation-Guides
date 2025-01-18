@@ -1,6 +1,6 @@
 # Linux Installation Guides
 
-This repository provides comprehensive installation guides for several Linux distributions, offering step-by-step instructions for setting up and configuring these operating systems.  These guides are designed to assist both beginners and experienced users in deploying Linux effectively.
+This repository provides installation guides for Linux distributions, offering step-by-step instructions for setting up and configuring these operating systems.  These guides are designed to assist users in deploying Linux effectively.
 
 ## Contents
 
